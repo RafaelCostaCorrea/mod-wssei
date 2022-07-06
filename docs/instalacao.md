@@ -69,7 +69,17 @@ chamado na Central de Atendimento do  PEN([https://portaldeservicos.planejamento
       ```bash
       php -c /etc/php.ini       [DIRETORIO_RAIZ_INSTALAÇÃO]/sei/scripts/sei_atualizar_versao_modulo_wssei.php
       ```
-   * importante: o usuário de banco, no momento da execução, deverá ser capaz de criar tabelas. Caso esteja na versão 3.1.x do SEI o script vai usar o usuário indicado na variável de script (UsuarioScript), conforme manual de instalação do sei 3.1.x
+   * importante: o usuário de banco, no momento da execução, deverá ser capaz de criar tabelas.
+         -> Caso esteja na versão 3.1.x do SEI, o script vai usar o usuário indicado na variável de script (UsuarioScript), conforme manual de instalação do sei 3.1.x. 
+         -> Caso esteja na versão 4.0.x do SEI, é preciso adicionar ao arquivo de configuração do sistema (ConfiguracaoSEI.php), no Array 'BancoSEI', usuário/senha COM permissão para executar comandos DDL. Exemplo:
+
+               'BancoSEI'  => array(
+                  ...
+                  ...
+                  'UsuarioScript' => '{Usuário}',
+                  'SenhaScript' => '{Senha}',
+                  ...
+                  ...),
 
 6. Necessário habilitar/instalar a extensão PHP &quot;mbstring&quot;. Verificar se todos os requisitos para utilização do SEI 3.0 estão sendo atendidos, entre eles, a versãoo do PHP 5.6
 
